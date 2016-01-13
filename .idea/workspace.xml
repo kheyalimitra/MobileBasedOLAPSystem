@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9da74814-6802-497d-83e5-90a9a26c6a0d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/OLAPQueryGenerator/DataRetrieval/CachedCell.class" afterPath="$PROJECT_DIR$/out/production/OLAPQueryGenerator/DataRetrieval/CachedCell.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/OLAPQueryGenerator/DataRetrieval/Soap.class" afterPath="$PROJECT_DIR$/out/production/OLAPQueryGenerator/DataRetrieval/Soap.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/OLAPQueryGenerator/MDXQueryProcessor/MDXQProcessor.class" afterPath="$PROJECT_DIR$/out/production/OLAPQueryGenerator/MDXQueryProcessor/MDXQProcessor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/org_apache_clerezza_ext_org_json_simple_0_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/org_apache_clerezza_ext_org_json_simple_0_4.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OLAPQueryGenerator.iml" afterPath="$PROJECT_DIR$/OLAPQueryGenerator.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MDXQueryProcessor/MDXQProcessor.java" afterPath="$PROJECT_DIR$/src/MDXQueryProcessor/MDXQProcessor.java" />
-    </list>
+    <list default="true" id="9da74814-6802-497d-83e5-90a9a26c6a0d" name="Default" comment="" />
     <ignored path="OLAPQueryGenerator.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -610,12 +600,12 @@
       <created>1451104038638</created>
       <option name="number" value="Default" />
       <updated>1451104038638</updated>
-      <workItem from="1452667386977" duration="788000" />
+      <workItem from="1452667386977" duration="946000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="788000" />
+    <option name="totallyTimeSpent" value="946000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
