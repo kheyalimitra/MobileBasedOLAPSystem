@@ -196,18 +196,6 @@ public class MDXQProcessor {
         _sortAndMergeKeys(keys);
 
     }
-    private void _extractDataFromParentCellInCache(String key, HashMap<Integer,List<TreeNode>> selectedDimension,
-                                                   int rowAxisNode, int rowLevelToFetch, int columnAxisNode,
-                                                   int columnLevelToFetch, int answerInGetMatrix)
-    {
-
-       CachedCell parentCell = CachedKeys.get(key);
-        if(parentCell!=null){
-            List<String> measures =    parentCell.measures;
-            HashMap<String,List<String>> children = parentCell.children;
-           // children.get(0).
-        }
-    }
     /**
      *
      * @param selectedDimension
@@ -397,67 +385,67 @@ public class MDXQProcessor {
         result = newResult;
         return  _callKeyGenerator(axisIndex+1,keys,result);
     }
-    private void _extractData(String key, List<TreeNode> value, TreeNode rowAxisNode, int rowLevelToFetch,
-                              TreeNode columnAxisNode, int columnLevelToFetch, answerInGetMatrix) {
-        CachedCell cell = CachedKeys.get(key);
-        if (cell != null) {
-            List<Integer> measures = cell.measures;
-            HashMap<Integer, List<TreeNode>> children = cell.children;
-            int index = 0;
-            for (int j = 0; j < children.get(1).size(); ++j) {
-                if (this._isAncestorCol(value, children.get(1).get(j))) {
-                    for (int i = 0; i < children.get(0).size(); ++i) {
-                        if (this._isAncestorRow(value, children.get(0).get(i))) {
-                            int[] current ={i, j};
-                            int[] dim = new int[2];
-                            dim[0] = children.get(0).size();
-                            dim[1] = children.get(1).size();
-                            int cellOrdinal = this._calculateCellOrdinal(dim, current);
-                            int k;
-                            for (k = index; k < measures.size(); ++k) {
-                                if (measures.get(k) == cellOrdinal) {
-                                    index = k + 1;
-                                    break;
-                                }
-                                if (measures.get(k) > cellOrdinal) {
-                                    index = k;
-                                    k = -1;
-                                    break;
-                                }
-                            }
-
-                            TreeNode rowMemberNode = children.get(0).get(i);
-                            TreeNode colMemberNode = children.get(1).get(j);
-
-                            int row;
-                            int col;
-
-                            // Set row/column to the row/column ancestors at the target aggregation level
-                            if (rowMemberNode.getLevel() <= rowAxisNode.getLevel() + rowLevelToFetch) {
-                                row = rowMemberNode.getNodeCounter();
-                            } else {
-                                row = rowMemberNode.getParent().getNodeCounter();//(rowAxisNode.depth + rowLevelToFetch).data.memberKey;
-                            }
-                            if (colMemberNode.getLevel() <= columnAxisNode.getLevel() + columnLevelToFetch) {
-                                col = colMemberNode.getNodeCounter();//.data.memberKey;
-                            } else {
-                                col = colMemberNode.getParent().getNodeCounter();//getAncestor(columnAxisNode.depth + columnLevelToFetch).data.memberKey;
-                            }
-
-                            if (k > -1 && k < measures.size()) {
-                                // If row/column exists in the answer, aggregate the tuple measure
-                               /* if (answerInGetMatrix.hasOwnProperty(row)) {
-                                    if (answerInGetMatrix[row].hasOwnProperty(col)) {
-                                        answerInGetMatrix[row][col] += measures[k][0];
-                                    }
-                                }*/
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+//    private void _extractData(String key, List<TreeNode> value, TreeNode rowAxisNode, int rowLevelToFetch,
+//                              TreeNode columnAxisNode, int columnLevelToFetch, answerInGetMatrix) {
+//        CachedCell cell = CachedKeys.get(key);
+//        if (cell != null) {
+//            List<Integer> measures = cell.measures;
+//            HashMap<Integer, List<TreeNode>> children = cell.children;
+//            int index = 0;
+//            for (int j = 0; j < children.get(1).size(); ++j) {
+//                if (this._isAncestorCol(value, children.get(1).get(j))) {
+//                    for (int i = 0; i < children.get(0).size(); ++i) {
+//                        if (this._isAncestorRow(value, children.get(0).get(i))) {
+//                            int[] current ={i, j};
+//                            int[] dim = new int[2];
+//                            dim[0] = children.get(0).size();
+//                            dim[1] = children.get(1).size();
+//                            int cellOrdinal = this._calculateCellOrdinal(dim, current);
+//                            int k;
+//                            for (k = index; k < measures.size(); ++k) {
+//                                if (measures.get(k) == cellOrdinal) {
+//                                    index = k + 1;
+//                                    break;
+//                                }
+//                                if (measures.get(k) > cellOrdinal) {
+//                                    index = k;
+//                                    k = -1;
+//                                    break;
+//                                }
+//                            }
+//
+//                            TreeNode rowMemberNode = children.get(0).get(i);
+//                            TreeNode colMemberNode = children.get(1).get(j);
+//
+//                            int row;
+//                            int col;
+//
+//                            // Set row/column to the row/column ancestors at the target aggregation level
+//                            if (rowMemberNode.getLevel() <= rowAxisNode.getLevel() + rowLevelToFetch) {
+//                                row = rowMemberNode.getNodeCounter();
+//                            } else {
+//                                row = rowMemberNode.getParent().getNodeCounter();//(rowAxisNode.depth + rowLevelToFetch).data.memberKey;
+//                            }
+//                            if (colMemberNode.getLevel() <= columnAxisNode.getLevel() + columnLevelToFetch) {
+//                                col = colMemberNode.getNodeCounter();//.data.memberKey;
+//                            } else {
+//                                col = colMemberNode.getParent().getNodeCounter();//getAncestor(columnAxisNode.depth + columnLevelToFetch).data.memberKey;
+//                            }
+//
+//                            if (k > -1 && k < measures.size()) {
+//                                // If row/column exists in the answer, aggregate the tuple measure
+//                               /* if (answerInGetMatrix.hasOwnProperty(row)) {
+//                                    if (answerInGetMatrix[row].hasOwnProperty(col)) {
+//                                        answerInGetMatrix[row][col] += measures[k][0];
+//                                    }
+//                                }*/
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
     private int _calculateCellOrdinal (int[] dim, int[] current) {
         int E = 1;
         int cellOrdinal = current[0];
